@@ -19,7 +19,6 @@ function largestOdd(arr){
 function sequenceSum(s){
     const arr = s.split(',');
     const sum = (accumulator, currentValue) => Number(accumulator) + Number(currentValue);
-    // console.log(arr.reduce(reducer));
     return arr.reduce(sum);
 }
 
@@ -36,20 +35,14 @@ function vowelsNumber(s){
 }
 
 function contains(str1, str2){
-    let result;
     str1 = str1.toLowerCase();
     str2 = str2.toLowerCase();
-    result = str1.includes(str2);
-    if (result == false){
-        result = str2.includes(str1);
-    }
-    return result;
+
+    return str1.includes(str2) || str2.includes(str1);
 }
 
 function isPalindrome(s){
-    s = s.replace(/\s+/g, '');
-    s = s.toLowerCase();
-    return s == s.split('').reverse().join('');
+    return s === s.replace(/\s+/g, '').toLowerCase().split('').reverse().join('');
 }
 
 function findExtremeDivisors(n1, n2){
@@ -82,13 +75,6 @@ function intersect(L1, L2){
     return L1.filter(function (element) {
         return L2.indexOf(element) > -1;
     });
-    // let result = [];
-    // for (let i of newArr) {
-    //     if (!result.includes(i)) {
-    //     result.push(i);
-    //     }
-    // }
-    // return result;
 }
 
 function indexOfMax(arr){
@@ -122,8 +108,7 @@ function letterHist(s){
 }
 
 function isPalindromeRecursive(s) {
-    s = s.split(' ').join('');
-    s = s.toLowerCase();
+    s = s.split(' ').join('').toLowerCase();
     if (s.charAt(0) === s.charAt(s.length - 1) && s.length != 0) {
         s = s.slice(1, s.length - 1);
     } else if(s.length == 0) {
